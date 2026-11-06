@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasi Royal | Modelling Agency</title>
+    <meta name="description" content="Kasi Royal Modelling Agency. Discovering, developing, and showcasing young talent from the townships and suburbs.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Color Palette from your Logo --- */
+        :root {
+            --purple: #3E1F6A; /* Deep Royal Purple */
+            --gold: #C6A052;   /* Metallic Gold */
+            --off-white: #FAFAFA;
+            --dark-text: #222222;
+        }
+
+        /* --- Global Styles --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--dark-text); background-color: #ffffff; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--purple); }
+        a { text-decoration: none; }
+
+        /* --- Navigation --- */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background-color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo-container { display: flex; align-items: center; }
+        .logo { height: 100px; width: auto; object-fit: contain; margin-top: 5px; margin-bottom: 5px; }
+        .nav-links { list-style: none; display: flex; align-items: center; gap: 30px; }
+        .nav-links a { color: var(--purple); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        
+        /* --- Buttons --- */
+        .btn-gold { background-color: var(--gold); color: white !important; padding: 10px 20px; border-radius: 4px; transition: all 0.3s ease; }
+        .btn-gold:hover { background-color: #b08d46; transform: translateY(-2px); }
+        .btn-purple { background-color: var(--purple); color: white; padding: 12px 28px; border-radius: 4px; display: inline-block; margin-top: 25px; font-weight: 600; transition: all 0.3s ease; }
+        .btn-purple:hover { background-color: #2c144d; transform: translateY(-2px); }
+
+        /* --- Hero Section --- */
+        .hero { height: 85vh; background: linear-gradient(rgba(62, 31, 106, 0.75), rgba(62, 31, 106, 0.75)), url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1920&auto=format&fit=crop') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; }
+        .hero-content { max-width: 800px; }
+        .hero h1 { color: var(--gold); font-size: 4rem; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; font-weight: 400; margin-bottom: 30px; }
+
+        /* --- Sections --- */
+        .section { padding: 100px 10%; text-align: center; }
+        .bg-light { background-color: var(--off-white); }
+        .section h2 { font-size: 2.8rem; margin-bottom: 15px; }
+        .section-text { max-width: 700px; margin: 0 auto 40px auto; font-size: 1.1rem; color: #555; }
+        .subtitle { color: var(--gold); font-weight: 600; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+
+        /* --- Gallery (Weekly Drop) --- */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .drop-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: left; }
+        .drop-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .drop-image-container { height: 450px; overflow: hidden; }
+        .drop-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .drop-card:hover img { transform: scale(1.05); }
+        .drop-info { padding: 25px; }
+        .drop-info h3 { margin-bottom: 10px; font-size: 1.5rem; }
+        .drop-info p { font-size: 0.95rem; color: #666; margin-bottom: 8px; }
+        .drop-info strong { color: var(--purple); }
+
+        /* --- Brands & Models Section --- */
+        .brands-section { background-color: var(--purple); color: white; }
+        .brands-section h2 { color: var(--gold); }
+        .brands-section p { color: #e0e0e0; }
+
+        /* --- Footer --- */
+        footer { background-color: #1a1a1a; color: white; text-align: center; padding: 60px 20px 30px 20px; }
+        .footer-logo { height: 130px; margin-bottom: 20px; background-color: white; padding: 10px; border-radius: 8px; }
+        .footer-content p { color: #aaa; margin-bottom: 10px; font-size: 0.9rem; }
+        .footer-content a { color: var(--gold); }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px; }
+            .logo { height: 90px; }
+            .nav-links { margin-top: 15px; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .hero h1 { font-size: 2.8rem; }
+            .section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Kasi Royal Logo" class="logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#weekly-drop">Weekly Drop</a></li>
+            <li><a href="#models">Our Models</a></li>
+            <li><a href="#brands" class="btn-gold">Book a Model</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Township Talent.<br>Royal Standard.</h1>
+            <p>Discovering, developing, and showcasing young talent from the kasi to the global stage. We connect authentic local faces with brands that matter.</p>
+            <a href="#weekly-drop" class="btn-purple">View This Week's Drop</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>The Kasi Royal Vision</h2>
+        <div class="section-text">
+            <p>We are more than a modelling agency. We are a platform for the youth of the townships and suburbs to shine. We connect raw, authentic local talent with local brands looking to push their clothing and products through real, relatable faces.</p>
+        </div>
+    </section>
+
+    <!-- Weekly Drop Section -->
+    <section id="weekly-drop" class="section bg-light">
+        <h2>The Weekly Drop</h2>
+        <p class="subtitle">Fresh faces and local fashion, every single week.</p>
+        
+        <div class="gallery">
+            
+            <!-- MODEL 1 -->
+            <div class="drop-card">
+                <div class="drop-image-container">
+                    <img src="model-denim.jpg" alt="Kasi Royal Model in Denim">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 1: The Denim Reconstruction</h3>
+                    <p><strong>Styling:</strong> Handcrafted from "Before" to "After"</p>
+                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                </div>
+            </div>
+
+            <!-- MODEL 2 -->
+            <div class="drop-card">
+                <div class="drop-image-container">
+                    <img src="model-white.jpg" alt="Kasi Royal Model in White Dress">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 2: Urban Elegance</h3>
+                    <p><strong>Styling:</strong> Custom Halter Dress Transformation</p>
+                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                </div>
+            </div>
+
+            <!-- MODEL 3 -->
+            <div class="drop-card">
+                <div class="drop-image-container">
+                    <img src="model-streetwear.jpg" alt="Kasi Royal Model in Streetwear">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 3: Streetwear Attitude</h3>
+                    <p><strong>Brand:</strong> Relay & Local Styling</p>
+                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                </div>
+            </div>
+
+            <!-- MODEL 4 -->
+            <div class="drop-card">
+                <div class="drop-image-container">
+                    <img src="model-casual.jpg" alt="Kasi Royal Model in Casual Wear">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 4: Winter Texture</h3>
+                    <p><strong>Styling:</strong> Local Styling</p>
+                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                </div>
+            </div>
+
+            <!-- MODEL 5 -->
+            <div class="drop-card">
+                <div class="drop-image-container">
+                    <img src="model-pink.jpg" alt="Kasi Royal Model in Pink Skirt">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 5: City Chic</h3>
+                    <p><strong>Styling:</strong> Bold & Vibrant</p>
+                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                </div>
+            </div>
+
+            <!-- MODEL 6 -->
+            <div class="drop-card">
+                <div class="drop-image-container">
+                    <img src="model-sand.jpg" alt="Kasi Royal Model in White Dress on Sand">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 6: Earth & Elegance</h3>
+                    <p><strong>Styling:</strong> Editorial Beachwear</p>
+                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="brands" class="section brands-section">
+        <h2>Advertise Your Brand</h2>
+        <div class="section-text">
+            <p>Want to push your local brand? Our agency provides the models, the styling, and the photography to showcase your clothing to a wider audience. Let's create a campaign together.</p>
+        </div>
+        <a href="mailto:hello@kasiroyal.co.za" class="btn-gold" style="padding: 15px 35px; font-size: 1.1rem;">Inquire Now</a>
+    </section>
+
+    <!-- Join the Agency Section -->
+    <section id="models" class="section">
+        <h2>Join Kasi Royal</h2>
+        <div class="section-text">
+            <p>Do you have what it takes to be the next face of Kasi Royal? We are always looking for fresh talent from the townships and suburbs. No professional experience needed—just confidence and drive.</p>
+        </div>
+        
+        <!-- UPDATED BUTTON WITH YOUR GOOGLE FORM LINK -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7g-fHyBi_AAvi14nuOjp90F3W2LmOGRFNxW-2j5yMboZzxg/viewform?usp=publish-editor" target="_blank" class="btn-purple">Apply to be a Model</a>
+        
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="logo.jpg" alt="Kasi Royal Logo" class="footer-logo">
+            <p>Promoting local talent and local brands.</p>
+            <p>Email: <a href="mailto:hello@kasiroyal.co.za">hello@kasiroyal.co.za</a> | WhatsApp: +27 69 211 8336</p>
+            <p style="margin-top: 20px; font-size: 0.8rem; color: #666;">&copy; 2024 Kasi Royal Modelling Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
