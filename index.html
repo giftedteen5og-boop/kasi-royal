@@ -14,8 +14,8 @@
     <style>
         /* --- Color Palette from your Logo --- */
         :root {
-            --purple: #3E1F6A; /* Deep Royal Purple */
-            --gold: #C6A052;   /* Metallic Gold */
+            --purple: #3E1F6A;
+            --gold: #C6A052;
             --off-white: #FAFAFA;
             --dark-text: #222222;
         }
@@ -35,15 +35,15 @@
         .nav-links a:hover { color: var(--gold); }
         
         /* --- Buttons --- */
-        .btn-gold { background-color: var(--gold); color: white !important; padding: 10px 20px; border-radius: 4px; transition: all 0.3s ease; }
-        .btn-gold:hover { background-color: #b08d46; transform: translateY(-2px); }
-        .btn-purple { background-color: var(--purple); color: white; padding: 12px 28px; border-radius: 4px; display: inline-block; margin-top: 25px; font-weight: 600; transition: all 0.3s ease; }
-        .btn-purple:hover { background-color: #2c144d; transform: translateY(-2px); }
+        .btn-gold { background-color: var(--gold); color: white !important; padding: 10px 20px; border-radius: 4px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(198, 160, 82, 0.2); }
+        .btn-gold:hover { background-color: #b08d46; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(198, 160, 82, 0.4); }
+        .btn-purple { background-color: var(--purple); color: white; padding: 12px 28px; border-radius: 4px; display: inline-block; margin-top: 25px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(62, 31, 106, 0.2); }
+        .btn-purple:hover { background-color: #2c144d; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(62, 31, 106, 0.4); }
 
         /* --- Hero Section --- */
-        .hero { height: 85vh; background: linear-gradient(rgba(62, 31, 106, 0.75), rgba(62, 31, 106, 0.75)), url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1920&auto=format&fit=crop') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; }
+        .hero { height: 85vh; background: linear-gradient(rgba(62, 31, 106, 0.8), rgba(62, 31, 106, 0.8)), url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920&auto=format&fit=crop') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; }
         .hero-content { max-width: 800px; }
-        .hero h1 { color: var(--gold); font-size: 4rem; margin-bottom: 20px; line-height: 1.1; }
+        .hero h1 { color: var(--gold); font-size: 4rem; margin-bottom: 20px; line-height: 1.1; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
         .hero p { font-size: 1.2rem; font-weight: 400; margin-bottom: 30px; }
 
         /* --- Sections --- */
@@ -56,7 +56,7 @@
 
         /* --- Gallery (Weekly Drop & Brands) --- */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .drop-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: left; }
+        .drop-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; text-align: left; }
         .drop-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
         .drop-image-container { height: 450px; overflow: hidden; }
         .drop-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
@@ -65,6 +65,20 @@
         .drop-info h3 { margin-bottom: 10px; font-size: 1.5rem; }
         .drop-info p { font-size: 0.95rem; color: #666; margin-bottom: 8px; }
         .drop-info strong { color: var(--purple); }
+
+        /* --- Load More Feature --- */
+        .drop-card.hidden { display: none; }
+        .load-more-container { text-align: center; margin-top: 50px; }
+        .load-more-btn { border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 1rem; padding: 15px 40px; }
+
+        /* --- Our Royal Models Roster --- */
+        .model-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; }
+        .model-profile { text-align: left; }
+        .model-photo { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 4px; margin-bottom: 15px; background-color: #e0e0e0; }
+        .model-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .model-profile:hover .model-photo img { transform: scale(1.08); }
+        .model-details h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--dark-text); font-family: 'Montserrat', sans-serif; font-weight: 600; }
+        .model-details p { font-size: 0.8rem; color: #777; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
 
         /* --- Brands & Models Section --- */
         .brands-section { background-color: var(--purple); color: white; }
@@ -84,6 +98,7 @@
             .nav-links { margin-top: 15px; flex-wrap: wrap; justify-content: center; gap: 15px; }
             .hero h1 { font-size: 2.8rem; }
             .section { padding: 60px 5%; }
+            .drop-image-container { height: 350px; }
         }
     </style>
 </head>
@@ -97,6 +112,7 @@
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#weekly-drop">Weekly Drop</a></li>
+            <li><a href="#models">Our Models</a></li> 
             <li><a href="#our-brands">Our Brands</a></li> 
             <li><a href="#brands" class="btn-gold">Book a Model</a></li>
         </ul>
@@ -124,9 +140,9 @@
         <h2>The Weekly Drop</h2>
         <p class="subtitle">Fresh faces and local fashion, every single week.</p>
         
-        <div class="gallery">
+        <div class="gallery" id="drop-gallery">
             
-            <!-- MODEL 1 -->
+            <!-- ORIGINAL MODEL 1 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
                     <img src="model-denim.jpg" alt="Kasi Royal Model in Denim">
@@ -134,11 +150,11 @@
                 <div class="drop-info">
                     <h3>Week 1: The Denim Reconstruction</h3>
                     <p><strong>Styling:</strong> Handcrafted from "Before" to "After"</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Model:</strong> Sphokazi Refilwe Ngwekazi</p>
                 </div>
             </div>
 
-            <!-- MODEL 2 -->
+            <!-- ORIGINAL MODEL 2 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
                     <img src="model-white.jpg" alt="Kasi Royal Model in White Dress">
@@ -146,11 +162,11 @@
                 <div class="drop-info">
                     <h3>Week 2: Urban Elegance</h3>
                     <p><strong>Styling:</strong> Custom Halter Dress Transformation</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Model:</strong> Sphokazi Refilwe Ngwekazi</p>
                 </div>
             </div>
 
-            <!-- MODEL 3 -->
+            <!-- ORIGINAL MODEL 3 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
                     <img src="model-streetwear.jpg" alt="Kasi Royal Model in Streetwear">
@@ -158,11 +174,11 @@
                 <div class="drop-info">
                     <h3>Week 3: Streetwear Attitude</h3>
                     <p><strong>Brand:</strong> Relay & Local Styling</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Model:</strong> Tabogo Buthelezi</p>
                 </div>
             </div>
 
-            <!-- MODEL 4 -->
+            <!-- ORIGINAL MODEL 4 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
                     <img src="model-casual.jpg" alt="Kasi Royal Model in Casual Wear">
@@ -170,11 +186,11 @@
                 <div class="drop-info">
                     <h3>Week 4: Winter Texture</h3>
                     <p><strong>Styling:</strong> Local Styling</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Model:</strong> Tabogo Buthelezi</p>
                 </div>
             </div>
 
-            <!-- MODEL 5 -->
+            <!-- ORIGINAL MODEL 5 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
                     <img src="model-pink.jpg" alt="Kasi Royal Model in Pink Skirt">
@@ -182,60 +198,60 @@
                 <div class="drop-info">
                     <h3>Week 5: City Chic</h3>
                     <p><strong>Styling:</strong> Bold & Vibrant</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Model:</strong> Zakwethu Mthethwa</p>
                 </div>
             </div>
 
-            <!-- MODEL 6 -->
+            <!-- ORIGINAL MODEL 6 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
                     <img src="model-sand.jpg" alt="Kasi Royal Model in White Dress on Sand">
                 </div>
                 <div class="drop-info">
                     <h3>Week 6: Earth & Elegance</h3>
-                    <p><strong>Styling:</strong> Editorial Beachwear</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Styling:</strong> Traditional Beachwear</p>
+                    <p><strong>Model:</strong> Zakwethu Mthethwa</p>
                 </div>
             </div>
 
-            <!-- MODEL 7 -->
-            <div class="drop-card">
+            <!-- ORIGINAL MODEL 7 (Hidden) -->
+            <div class="drop-card hidden">
                 <div class="drop-image-container">
                     <img src="model-edgy.jpg" alt="Kasi Royal Model in Edgy Streetwear">
                 </div>
                 <div class="drop-info">
                     <h3>Week 7: Edgy & Bold</h3>
                     <p><strong>Styling:</strong> Vintage Tee & Denim</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Model:</strong> Samke Dojiwe</p>
                 </div>
             </div>
 
-            <!-- MODEL 8 -->
-            <div class="drop-card">
+            <!-- ORIGINAL MODEL 8 (Hidden) -->
+            <div class="drop-card hidden">
                 <div class="drop-image-container">
                     <img src="model-floral.jpg" alt="Kasi Royal Model in Floral Dress">
                 </div>
                 <div class="drop-info">
                     <h3>Week 8: Summer Florals</h3>
                     <p><strong>Styling:</strong> Elegant & Feminine</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Model:</strong> Samke Dojiwe</p>
                 </div>
             </div>
 
-            <!-- MODEL 9 -->
-            <div class="drop-card">
+            <!-- ORIGINAL MODEL 9 (Hidden) -->
+            <div class="drop-card hidden">
                 <div class="drop-image-container">
                     <img src="model-artistic.jpg" alt="Kasi Royal Model in Black Dress">
                 </div>
                 <div class="drop-info">
                     <h3>Week 9: After Dark</h3>
                     <p><strong>Styling:</strong> High Fashion Black Dress</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Model:</strong> Samke Dojiwe</p>
                 </div>
             </div>
 
-            <!-- MODEL 10 -->
-            <div class="drop-card">
+            <!-- ORIGINAL MODEL 10 (Hidden) -->
+            <div class="drop-card hidden">
                 <div class="drop-image-container">
                     <img src="model-takumi.jpg" alt="Kasi Royal Model wearing TakumiKgosi">
                 </div>
@@ -246,27 +262,239 @@
                 </div>
             </div>
 
-            <!-- MODEL 11 -->
-            <div class="drop-card">
+            <!-- ORIGINAL MODEL 11 (Hidden) -->
+            <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-royalty-mall.jpg" alt="Kasi Royal Model wearing Royalty">
+                    <img src="model-royalty-mall.jpg" alt="Kasi Royal Model wearing Royalty SFH">
                 </div>
                 <div class="drop-info">
                     <h3>Week 11: Mall Elegance</h3>
-                    <p><strong>Brand:</strong> Royalty</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Brand:</strong> Royalty SFH</p>
+                    <p><strong>Model:</strong> Sphokazi Refilwe Ngwekazi</p>
                 </div>
             </div>
 
-            <!-- MODEL 12 -->
-            <div class="drop-card">
+            <!-- ORIGINAL MODEL 12 (Hidden) -->
+            <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-royalty-outdoor.jpg" alt="Kasi Royal Model wearing Royalty">
+                    <img src="model-royalty-outdoor.jpg" alt="Kasi Royal Model wearing Royalty SFH">
                 </div>
                 <div class="drop-info">
                     <h3>Week 12: Vibrant Summer</h3>
-                    <p><strong>Brand:</strong> Royalty</p>
-                    <p><strong>Model:</strong> Kasi Royal Talent</p>
+                    <p><strong>Brand:</strong> Royalty SFH</p>
+                    <p><strong>Model:</strong> Sphokazi Refilwe Ngwekazi</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 13 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-1.jpg" alt="Ntando in Black Long-sleeve">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 13: Streetwear Essentials</h3>
+                    <p><strong>Model:</strong> Ntando</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 14 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-2.jpg" alt="Model in Blue Jacket and Graphic Jeans">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 14: Y2K Revival</h3>
+                    <p><strong>Model:</strong> Samkel Dojiwe</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 15 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-3.jpg" alt="Tabogo in Brown Dress">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 15: Earth Tones</h3>
+                    <p><strong>Model:</strong> Tabogo Buthelezi</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 16 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-4.jpg" alt="Zakwethu in White Hoodie">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 16: Casual Comfort</h3>
+                    <p><strong>Model:</strong> Zakwethu Mthethwa</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 17 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-5.jpg" alt="Ntando in White Tee">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 17: Clean Looks</h3>
+                    <p><strong>Model:</strong> Ntando</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 18 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-6.jpg" alt="Samke in Black Dress">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 18: After Dark</h3>
+                    <p><strong>Model:</strong> Samke Dojiwe</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 19 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-7.jpg" alt="Samke in Graphic Jeans">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 19: Bold Streetwear</h3>
+                    <p><strong>Model:</strong> Samke Dojiwe</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 20 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-8.jpg" alt="Tabogo in Brown Dress">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 20: Golden Hour</h3>
+                    <p><strong>Model:</strong> Tabogo Buthelezi</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 21 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-9.jpg" alt="Model with Blonde Braids">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 21: Sporty Chic</h3>
+                    <p><strong>Model:</strong> Zakwethu Mthethwa</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 22 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-10.jpg" alt="Model in Red Leather Jacket">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 22: Red Hot</h3>
+                    <p><strong>Model:</strong> Zakwethu Mthethwa</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 23 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-11.jpg" alt="Model in Fur Coat">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 23: Winter Luxe</h3>
+                    <p><strong>Model:</strong> Zakwethu Mthethwa</p>
+                </div>
+            </div>
+
+            <!-- NEW MODEL 24 (Hidden) -->
+            <div class="drop-card hidden">
+                <div class="drop-image-container">
+                    <img src="model-drop-12.jpg" alt="Model in Checkered Top">
+                </div>
+                <div class="drop-info">
+                    <h3>Week 24: Summer Checks</h3>
+                    <p><strong>Model:</strong> Zakwethu Mthethwa</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- THE LOAD MORE BUTTON -->
+        <div class="load-more-container">
+            <button id="loadMoreBtn" class="btn-gold load-more-btn">Load More Drops</button>
+        </div>
+    </section>
+
+    <!-- Our Royal Models Roster Section -->
+    <section id="models" class="section bg-white">
+        <h2>Our Royal Models</h2>
+        <p class="subtitle">The faces of Kasi Royal.</p>
+        
+        <div class="model-grid">
+            
+            <!-- MODEL PROFILE: NTANDO -->
+            <div class="model-profile">
+                <div class="model-photo">
+                    <img src="model-ntando.jpg" alt="Ntando">
+                </div>
+                <div class="model-details">
+                    <h4>Ntando</h4>
+                    <p>Category: Commercial / Streetwear</p>
+                    <p>Age: 23</p>
+                    <p>Location: JHB</p>
+                </div>
+            </div>
+
+            <!-- MODEL PROFILE: TABOGO BUTHELEZI -->
+            <div class="model-profile">
+                <div class="model-photo">
+                    <img src="model-tabogo.jpg" alt="Tabogo Buthelezi">
+                </div>
+                <div class="model-details">
+                    <h4>Tabogo Buthelezi</h4>
+                    <p>Category: Fashion / Beauty</p>
+                    <p>Age: 22</p>
+                    <p>Location: JHB</p>
+                </div>
+            </div>
+
+            <!-- MODEL PROFILE: ZAKWETHU MTHETHWA -->
+            <div class="model-profile">
+                <div class="model-photo">
+                    <img src="model-zakwethu.jpg" alt="Zakwethu Mthethwa">
+                </div>
+                <div class="model-details">
+                    <h4>Zakwethu Mthethwa</h4>
+                    <p>Category: Editorial / Streetwear</p>
+                    <p>Age: 21</p>
+                    <p>Location: JHB</p>
+                </div>
+            </div>
+
+            <!-- MODEL PROFILE: SPHOKAZI -->
+            <div class="model-profile">
+                <div class="model-photo">
+                    <img src="model-sphokazi.jpg" alt="Sphokazi Refilwe Ngwekazi">
+                </div>
+                <div class="model-details">
+                    <h4>Sphokazi Refilwe Ngwekazi</h4>
+                    <p>Category: Runway / High Fashion</p>
+                    <p>Age: 21</p>
+                    <p>Location: KZN</p>
+                </div>
+            </div>
+
+            <!-- MODEL PROFILE: SAMKE DOJIWE -->
+            <div class="model-profile">
+                <div class="model-photo">
+                    <img src="model-samke.jpg" alt="Samke Dojiwe">
+                </div>
+                <div class="model-details">
+                    <h4>Samke Dojiwe</h4>
+                    <p>Category: Streetwear / Editorial</p>
+                    <p>Age: 21</p>
+                    <p>Location: JHB</p>
                 </div>
             </div>
 
@@ -274,7 +502,7 @@
     </section>
 
     <!-- Brands We Represent Section -->
-    <section id="our-brands" class="section bg-white">
+    <section id="our-brands" class="section bg-light">
         <h2>Brands We Represent</h2>
         <p class="subtitle">Pushing local fashion forward.</p>
         
@@ -314,13 +542,13 @@
                 </div>
             </div>
 
-            <!-- BRAND: ROYALTY (NEW) -->
+            <!-- BRAND: ROYALTY SFH -->
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="royalty-brand-1.jpg" alt="Royalty Custom Design">
+                    <img src="royalty-brand-1.jpg" alt="Royalty SFH Custom Design">
                 </div>
                 <div class="drop-info">
-                    <h3>Royalty: Custom Flared Dress</h3>
+                    <h3>Royalty SFH: Custom Flared Dress</h3>
                     <p><strong>Category:</strong> Bespoke Fashion</p>
                     <p><strong>Status:</strong> Represented by Kasi Royal</p>
                 </div>
@@ -328,10 +556,10 @@
 
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="royalty-brand-2.jpg" alt="Royalty Custom Halter Dress">
+                    <img src="royalty-brand-2.jpg" alt="Royalty SFH Custom Halter Dress">
                 </div>
                 <div class="drop-info">
-                    <h3>Royalty: Halter Flare Dress</h3>
+                    <h3>Royalty SFH: Halter Flare Dress</h3>
                     <p><strong>Category:</strong> Custom Summer Wear</p>
                     <p><strong>Status:</strong> Represented by Kasi Royal</p>
                 </div>
@@ -353,7 +581,7 @@
     </section>
 
     <!-- Join the Agency Section -->
-    <section id="models" class="section">
+    <section id="join" class="section">
         <h2>Join Kasi Royal</h2>
         <div class="section-text">
             <p>Do you have what it takes to be the next face of Kasi Royal? We are always looking for fresh talent from the townships and suburbs. No professional experience needed—just confidence and drive.</p>
@@ -369,10 +597,44 @@
         <div class="footer-content">
             <img src="logo.jpg" alt="Kasi Royal Logo" class="footer-logo">
             <p>Promoting local talent and local brands.</p>
-            <p>Email: <a href="mailto:hello@kasiroyal.co.za">hello@kasiroyal.co.za</a> | WhatsApp: +27 69 211 8336</p>
+            <p>Email: <a href="mailto:hello@kasiroyal.co.za">hello@kasiroyal.co.za</a> | WhatsApp: <a href="https://wa.me/27692118336" target="_blank">+27 69 211 8336</a></p>
             <p style="margin-top: 20px; font-size: 0.8rem; color: #666;">&copy; 2024 Kasi Royal Modelling Agency. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- JavaScript for Load More Button -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loadMoreBtn = document.getElementById("loadMoreBtn");
+            const hiddenCards = document.querySelectorAll(".drop-card.hidden");
+            let currentIndex = 0;
+            const cardsToShow = 6; // How many pictures to load at a time
+
+            // If there are no hidden cards initially, hide the button
+            if (hiddenCards.length === 0) {
+                loadMoreBtn.style.display = "none";
+            }
+
+            loadMoreBtn.addEventListener("click", function() {
+                // Show the next batch of cards
+                for (let i = currentIndex; i < currentIndex + cardsToShow; i++) {
+                    if (hiddenCards[i]) {
+                        hiddenCards[i].classList.remove("hidden");
+                        // Add a smooth fade-in effect
+                        hiddenCards[i].style.opacity = 0;
+                        setTimeout(() => {
+                            hiddenCards[i].style.opacity = 1;
+                        }, 50);
+                    }
+                }
+                currentIndex += cardsToShow;
+
+                // If we've shown all cards, hide the button
+                if (currentIndex >= hiddenCards.length) {
+                    loadMoreBtn.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
