@@ -59,7 +59,7 @@
         .drop-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; text-align: left; }
         .drop-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
         .drop-image-container { height: 450px; overflow: hidden; }
-        .drop-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .drop-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; cursor: pointer; }
         .drop-card:hover img { transform: scale(1.05); }
         .drop-info { padding: 25px; }
         .drop-info h3 { margin-bottom: 10px; font-size: 1.5rem; }
@@ -75,10 +75,33 @@
         .model-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; }
         .model-profile { text-align: left; }
         .model-photo { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 4px; margin-bottom: 15px; background-color: #e0e0e0; }
-        .model-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .model-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; cursor: pointer; }
         .model-profile:hover .model-photo img { transform: scale(1.08); }
         .model-details h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--dark-text); font-family: 'Montserrat', sans-serif; font-weight: 600; }
         .model-details p { font-size: 0.8rem; color: #777; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* --- Image Lightbox (Zoom) --- */
+        #lightbox {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Dark background */
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: zoom-out;
+        }
+        #lightbox-img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
 
         /* --- Brands & Models Section --- */
         .brands-section { background-color: var(--purple); color: white; }
@@ -145,7 +168,7 @@
             <!-- ORIGINAL MODEL 1 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="model-denim.jpg" alt="Kasi Royal Model in Denim">
+                    <img src="model-denim.jpg" alt="Kasi Royal Model in Denim" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 1: The Denim Reconstruction</h3>
@@ -157,7 +180,7 @@
             <!-- ORIGINAL MODEL 2 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="model-white.jpg" alt="Kasi Royal Model in White Dress">
+                    <img src="model-white.jpg" alt="Kasi Royal Model in White Dress" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 2: Urban Elegance</h3>
@@ -169,7 +192,7 @@
             <!-- ORIGINAL MODEL 3 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="model-streetwear.jpg" alt="Kasi Royal Model in Streetwear">
+                    <img src="model-streetwear.jpg" alt="Kasi Royal Model in Streetwear" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 3: Streetwear Attitude</h3>
@@ -181,7 +204,7 @@
             <!-- ORIGINAL MODEL 4 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="model-casual.jpg" alt="Kasi Royal Model in Casual Wear">
+                    <img src="model-casual.jpg" alt="Kasi Royal Model in Casual Wear" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 4: Winter Texture</h3>
@@ -193,7 +216,7 @@
             <!-- ORIGINAL MODEL 5 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="model-pink.jpg" alt="Kasi Royal Model in Pink Skirt">
+                    <img src="model-pink.jpg" alt="Kasi Royal Model in Pink Skirt" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 5: City Chic</h3>
@@ -205,7 +228,7 @@
             <!-- ORIGINAL MODEL 6 (Visible) -->
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="model-sand.jpg" alt="Kasi Royal Model in White Dress on Sand">
+                    <img src="model-sand.jpg" alt="Kasi Royal Model in White Dress on Sand" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 6: Earth & Elegance</h3>
@@ -217,7 +240,7 @@
             <!-- ORIGINAL MODEL 7 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-edgy.jpg" alt="Kasi Royal Model in Edgy Streetwear">
+                    <img src="model-edgy.jpg" alt="Kasi Royal Model in Edgy Streetwear" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 7: Edgy & Bold</h3>
@@ -229,7 +252,7 @@
             <!-- ORIGINAL MODEL 8 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-floral.jpg" alt="Kasi Royal Model in Floral Dress">
+                    <img src="model-floral.jpg" alt="Kasi Royal Model in Floral Dress" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 8: Summer Florals</h3>
@@ -241,7 +264,7 @@
             <!-- ORIGINAL MODEL 9 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-artistic.jpg" alt="Kasi Royal Model in Black Dress">
+                    <img src="model-artistic.jpg" alt="Kasi Royal Model in Black Dress" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 9: After Dark</h3>
@@ -253,7 +276,7 @@
             <!-- ORIGINAL MODEL 10 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-takumi.jpg" alt="Kasi Royal Model wearing TakumiKgosi">
+                    <img src="model-takumi.jpg" alt="Kasi Royal Model wearing TakumiKgosi" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 10: Strength Within</h3>
@@ -265,7 +288,7 @@
             <!-- ORIGINAL MODEL 11 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-royalty-mall.jpg" alt="Kasi Royal Model wearing Royalty SFH">
+                    <img src="model-royalty-mall.jpg" alt="Kasi Royal Model wearing Royalty SFH" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 11: Mall Elegance</h3>
@@ -277,7 +300,7 @@
             <!-- ORIGINAL MODEL 12 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-royalty-outdoor.jpg" alt="Kasi Royal Model wearing Royalty SFH">
+                    <img src="model-royalty-outdoor.jpg" alt="Kasi Royal Model wearing Royalty SFH" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 12: Vibrant Summer</h3>
@@ -289,7 +312,7 @@
             <!-- NEW MODEL 13 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-1.jpg" alt="Ntando in Black Long-sleeve">
+                    <img src="model-drop-1.jpg" alt="Ntando in Black Long-sleeve" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 13: Streetwear Essentials</h3>
@@ -300,7 +323,7 @@
             <!-- NEW MODEL 14 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-2.jpg" alt="Model in Blue Jacket and Graphic Jeans">
+                    <img src="model-drop-2.jpg" alt="Model in Blue Jacket and Graphic Jeans" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 14: Y2K Revival</h3>
@@ -311,7 +334,7 @@
             <!-- NEW MODEL 15 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-3.jpg" alt="Tabogo in Brown Dress">
+                    <img src="model-drop-3.jpg" alt="Tabogo in Brown Dress" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 15: Earth Tones</h3>
@@ -322,7 +345,7 @@
             <!-- NEW MODEL 16 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-4.jpg" alt="Zakwethu in White Hoodie">
+                    <img src="model-drop-4.jpg" alt="Zakwethu in White Hoodie" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 16: Casual Comfort</h3>
@@ -333,7 +356,7 @@
             <!-- NEW MODEL 17 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-5.jpg" alt="Ntando in White Tee">
+                    <img src="model-drop-5.jpg" alt="Ntando in White Tee" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 17: Clean Looks</h3>
@@ -344,7 +367,7 @@
             <!-- NEW MODEL 18 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-6.jpg" alt="Samke in Black Dress">
+                    <img src="model-drop-6.jpg" alt="Samke in Black Dress" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 18: After Dark</h3>
@@ -355,7 +378,7 @@
             <!-- NEW MODEL 19 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-7.jpg" alt="Samke in Graphic Jeans">
+                    <img src="model-drop-7.jpg" alt="Samke in Graphic Jeans" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 19: Bold Streetwear</h3>
@@ -366,7 +389,7 @@
             <!-- NEW MODEL 20 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-8.jpg" alt="Tabogo in Brown Dress">
+                    <img src="model-drop-8.jpg" alt="Tabogo in Brown Dress" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 20: Golden Hour</h3>
@@ -377,7 +400,7 @@
             <!-- NEW MODEL 21 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-9.jpg" alt="Model with Blonde Braids">
+                    <img src="model-drop-9.jpg" alt="Model with Blonde Braids" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 21: Sporty Chic</h3>
@@ -388,7 +411,7 @@
             <!-- NEW MODEL 22 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-10.jpg" alt="Model in Red Leather Jacket">
+                    <img src="model-drop-10.jpg" alt="Model in Red Leather Jacket" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 22: Red Hot</h3>
@@ -399,7 +422,7 @@
             <!-- NEW MODEL 23 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-11.jpg" alt="Model in Fur Coat">
+                    <img src="model-drop-11.jpg" alt="Model in Fur Coat" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 23: Winter Luxe</h3>
@@ -410,7 +433,7 @@
             <!-- NEW MODEL 24 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-12.jpg" alt="Model in Checkered Top">
+                    <img src="model-drop-12.jpg" alt="Model in Checkered Top" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 24: Summer Checks</h3>
@@ -421,7 +444,7 @@
             <!-- NEW MODEL 25 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-25.jpg" alt="Model in Brown Dress in Field">
+                    <img src="model-drop-25.jpg" alt="Model in Brown Dress in Field" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 25: Sunset Serenity</h3>
@@ -432,7 +455,7 @@
             <!-- NEW MODEL 26 (Hidden) -->
             <div class="drop-card hidden">
                 <div class="drop-image-container">
-                    <img src="model-drop-26.jpg" alt="Model in Pink Dress and Red Cap">
+                    <img src="model-drop-26.jpg" alt="Model in Pink Dress and Red Cap" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Week 26: Vibrant Energy</h3>
@@ -458,7 +481,7 @@
             <!-- MODEL PROFILE: NTANDO -->
             <div class="model-profile">
                 <div class="model-photo">
-                    <img src="model-ntando.jpg" alt="Ntando">
+                    <img src="model-ntando.jpg" alt="Ntando" onclick="openLightbox(this.src)">
                 </div>
                 <div class="model-details">
                     <h4>Ntando</h4>
@@ -471,7 +494,7 @@
             <!-- MODEL PROFILE: TABOGO BUTHELEZI -->
             <div class="model-profile">
                 <div class="model-photo">
-                    <img src="model-tabogo.jpg" alt="Tabogo Buthelezi">
+                    <img src="model-tabogo.jpg" alt="Tabogo Buthelezi" onclick="openLightbox(this.src)">
                 </div>
                 <div class="model-details">
                     <h4>Tabogo Buthelezi</h4>
@@ -484,7 +507,7 @@
             <!-- MODEL PROFILE: ZAKWETHU MTHETHWA -->
             <div class="model-profile">
                 <div class="model-photo">
-                    <img src="model-zakwethu.jpg" alt="Zakwethu Mthethwa">
+                    <img src="model-zakwethu.jpg" alt="Zakwethu Mthethwa" onclick="openLightbox(this.src)">
                 </div>
                 <div class="model-details">
                     <h4>Zakwethu Mthethwa</h4>
@@ -497,7 +520,7 @@
             <!-- MODEL PROFILE: SPHOKAZI -->
             <div class="model-profile">
                 <div class="model-photo">
-                    <img src="model-sphokazi.jpg" alt="Sphokazi Refilwe Ngwekazi">
+                    <img src="model-sphokazi.jpg" alt="Sphokazi Refilwe Ngwekazi" onclick="openLightbox(this.src)">
                 </div>
                 <div class="model-details">
                     <h4>Sphokazi Refilwe Ngwekazi</h4>
@@ -510,7 +533,7 @@
             <!-- MODEL PROFILE: SAMKE DOJIWE -->
             <div class="model-profile">
                 <div class="model-photo">
-                    <img src="model-samke.jpg" alt="Samke Dojiwe">
+                    <img src="model-samke.jpg" alt="Samke Dojiwe" onclick="openLightbox(this.src)">
                 </div>
                 <div class="model-details">
                     <h4>Samke Dojiwe</h4>
@@ -523,20 +546,20 @@
             <!-- NEW MODEL PROFILE: GOLD BRAIDS -->
             <div class="model-profile">
                 <div class="model-photo">
-                    <img src="model-babes.jpg" alt="Kasi Royal Model in Shiny Dress">
+                    <img src="model-babes.jpg" alt="Kasi Royal Model in Shiny Dress" onclick="openLightbox(this.src)">
                 </div>
                 <div class="model-details">
                     <h4>Mbali</h4>
                     <p>Category: Glam / Beauty</p>
                     <p>Age: 22</p>
-                    <p>Location:JHB</p>
+                    <p>Location: JHB</p>
                 </div>
             </div>
 
             <!-- NEW MODEL PROFILE: YELLOW STRIPED TOP -->
             <div class="model-profile">
                 <div class="model-photo">
-                    <img src="model-buhle.jpg" alt="Kasi Royal Model in Striped Top">
+                    <img src="model-buhle.jpg" alt="Kasi Royal Model in Striped Top" onclick="openLightbox(this.src)">
                 </div>
                 <div class="model-details">
                     <h4>Nthabeleng</h4>
@@ -559,7 +582,7 @@
             <!-- BRAND: TAKUMIKGOSI -->
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="takumi-strength-close.jpg" alt="TakumiKgosi Strength Within Tee">
+                    <img src="takumi-strength-close.jpg" alt="TakumiKgosi Strength Within Tee" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>TakumiKgosi: "Strength Within"</h3>
@@ -570,7 +593,7 @@
 
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="takumi-black-tee.jpg" alt="TakumiKgosi Black Tee">
+                    <img src="takumi-black-tee.jpg" alt="TakumiKgosi Black Tee" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>TakumiKgosi: Classic Black</h3>
@@ -581,7 +604,7 @@
 
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="takumi-ride-babe.jpg" alt="TakumiKgosi Your Ride Babe Tee">
+                    <img src="takumi-ride-babe.jpg" alt="TakumiKgosi Your Ride Babe Tee" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>TakumiKgosi: "Your Ride Babe"</h3>
@@ -593,7 +616,7 @@
             <!-- BRAND: ROYALTY SFH -->
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="royalty-brand-1.jpg" alt="Royalty SFH Custom Design">
+                    <img src="royalty-brand-1.jpg" alt="Royalty SFH Custom Design" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Royalty SFH: Custom Flared Dress</h3>
@@ -604,7 +627,7 @@
 
             <div class="drop-card">
                 <div class="drop-image-container">
-                    <img src="royalty-brand-2.jpg" alt="Royalty SFH Custom Halter Dress">
+                    <img src="royalty-brand-2.jpg" alt="Royalty SFH Custom Halter Dress" onclick="openLightbox(this.src)">
                 </div>
                 <div class="drop-info">
                     <h3>Royalty SFH: Halter Flare Dress</h3>
@@ -650,25 +673,28 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Load More Button -->
+    <!-- Image Lightbox HTML (Hidden by default) -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <!-- JavaScript for Load More Button and Lightbox -->
     <script>
+        // 1. Logic for the Load More Button
         document.addEventListener("DOMContentLoaded", function() {
             const loadMoreBtn = document.getElementById("loadMoreBtn");
             const hiddenCards = document.querySelectorAll(".drop-card.hidden");
             let currentIndex = 0;
-            const cardsToShow = 6; // How many pictures to load at a time
+            const cardsToShow = 6; 
 
-            // If there are no hidden cards initially, hide the button
             if (hiddenCards.length === 0) {
                 loadMoreBtn.style.display = "none";
             }
 
             loadMoreBtn.addEventListener("click", function() {
-                // Show the next batch of cards
                 for (let i = currentIndex; i < currentIndex + cardsToShow; i++) {
                     if (hiddenCards[i]) {
                         hiddenCards[i].classList.remove("hidden");
-                        // Add a smooth fade-in effect
                         hiddenCards[i].style.opacity = 0;
                         setTimeout(() => {
                             hiddenCards[i].style.opacity = 1;
@@ -676,13 +702,24 @@
                     }
                 }
                 currentIndex += cardsToShow;
-
-                // If we've shown all cards, hide the button
                 if (currentIndex >= hiddenCards.length) {
                     loadMoreBtn.style.display = "none";
                 }
             });
         });
+
+        // 2. Logic for the Image Zoom (Lightbox)
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            lightboxImg.src = imageSrc;
+            lightbox.style.display = "flex"; // Show the popup
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            lightbox.style.display = "none"; // Hide the popup
+        }
     </script>
 </body>
 </html>
